@@ -2,32 +2,35 @@ package it.polito.tdp.parole.model;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeMap;
 
-public class Parole {
-		
-	TreeMap<String, String> parole = new TreeMap<String, String>();
-	
-	public Parole() {
-		//TODO
+public class ParoleLL implements Comparable<String>{
+
+	List<String> parole = new LinkedList<String>();
+
+	public ParoleLL() {
+		// TODO
 	}
-	
+
 	public void addParola(String p) {
-		parole.put(p, p);
+		parole.add(p);
 	}
-	
+
 	public List<String> getElenco() {
-		List<String> temp = new LinkedList<String>(parole.values());
-		return temp;
+		return parole;
 	}
-	
+
 	public void reset() {
 		parole.clear();
 	}
 
 	public void remove(String selectedText) {
 		parole.remove(selectedText);
-		
+
+	}
+
+	@Override
+	public int compareTo(String o) {
+		return this.compareTo(o);
 	}
 
 }
