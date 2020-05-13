@@ -48,8 +48,11 @@ public class FXMLController {
 	void doInsert(ActionEvent event) {
 		//elenco.addParola(txtParola.getText());
 		//elencoLL.addParola(txtParola.getText());
+		
+		double start = System.nanoTime();
 		elencoAL.addParola(txtParola.getText());
-
+		double stop = System.nanoTime();
+		
 		List<String> temp = new LinkedList<String>(elencoAL.getElenco());
 		Collections.sort(temp);
 		
@@ -64,8 +67,8 @@ public class FXMLController {
 		txtParola.clear();
 		txtResult.setText(s1);
 		
-		Long l = System.nanoTime();
-		txtTempo.setText(Long.toString(l));
+		//Long l = System.nanoTime();
+		txtTempo.setText(""+(stop-start)/1e9);
 	}
 
 	@FXML
